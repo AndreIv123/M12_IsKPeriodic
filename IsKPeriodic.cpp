@@ -13,12 +13,15 @@ bool IsKPeriodic(int k, const std::string &text) {
     // Строка не может быть кратна k, если она короче k
     if ( k > lenText ) {return false;};
 
+    // Строка кратна k, если она длиной k
+    if ( k == lenText ) {return true;};
+
     // Строка не может быть кратна k, если ее размер не кратен k
     if ( lenText % k ) {return false;};
 
 
     // Перебор симоволов проверяемой строки с шагом k
-    for (int idxText = 0; idxText<lenText; idxText+=k) {
+    for (int idxText = k; idxText<lenText; idxText+=k) {
 
         /* Проверка совпадения символов проверямой строки в текущей позиции
            с символами начального участка заданной длины k (шаблона)
